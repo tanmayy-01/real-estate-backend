@@ -16,6 +16,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'developer_id',
         as: 'user'
       })
+
+      DeveloperProfile.hasMany(models.DeveloperReview, {
+        foreignKey: 'developer_id',
+        as: 'reviews'
+      });
+
+      DeveloperProfile.hasMany(models.DeveloperDocument, {
+        foreignKey: 'developer_id',
+        as: 'documents'
+      });
     }
   }
   DeveloperProfile.init({

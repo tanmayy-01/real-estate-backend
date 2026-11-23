@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'buyer_id',
         as: 'user'
       })
+
+      BuyerProfile.hasMany(models.DeveloperReview, {
+        foreignKey: 'buyer_id',
+        as: 'developerReviews'
+      });
     }
   }
   BuyerProfile.init({
