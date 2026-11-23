@@ -17,7 +17,17 @@ module.exports = (sequelize, DataTypes) => {
         otherKey: 'role_id',
         as: 'roles'
       });
-    }
+
+      User.hasOne(models.BuyerProfile, {
+        foreignKey: 'buyer_id',
+        as: 'buyerProfile'
+      });
+      
+      User.hasOne(models.DeveloperProfile, {
+        foreignKey: 'developer_id',
+        as: 'developerProfile'
+      });
+      }
   }
   User.init({
     full_name: {
